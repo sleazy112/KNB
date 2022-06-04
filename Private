@@ -46,7 +46,7 @@ wait(6)
 end
 end)
 
-section1:addToggle("AutoCharge", nil, function(state)
+section1:addToggle("AutoGuard", nil, function(state)
     _G.active = state
     while _G.active do
         local ohBoolean1 = true
@@ -55,15 +55,26 @@ section1:addToggle("AutoCharge", nil, function(state)
     end
 end)
 
+section1:addTextbox("Notification", "Default", function(value, focusLost)
+    local ohInstance1 = workspace.value
+    game:GetService("ReplicatedStorage").Events.Pass:FireServer(ohInstance1)("Input", value)
+    wait(2)
+end
+end)
 
 
 
+local page = venyx:addPage("Settings", 5012544693)
+local section1 = page:addSection("Section 1")
 
 section1:addKeybind("CloseGui", Enum.KeyCode.RightControl, function()
     print("Activated Keybind")
     venyx:toggle()
     end, function()
     print("Changed Keybind")
+end)
+
+section1:addButton("Made by sleazy",function()
 end)
 
 -- load
