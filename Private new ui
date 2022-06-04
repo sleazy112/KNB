@@ -1,0 +1,62 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("KNB Private", "DarkTheme")
+
+local Tab = Window:NewTab("Legit")
+
+local Section22 = Tab:NewSection("Legit tabs")
+
+Section22:NewToggle("AutoCharge", "Charges for u", function(state)
+    _G.active = state
+    while _G.active do
+        local ohBoolean1 = true
+        game:GetService("ReplicatedStorage").Events.Charge:FireServer(ohBoolean1)
+        wait(1)
+    end
+end)
+
+local Tab = Window:NewTab("Autofarm")
+
+local Section11 = Tab:NewSection("Autofarm stuff")
+
+Section11:NewToggle("AutoShoot", "Shoots For u", function(state)
+    _G.active = state
+    while _G.active do
+local ohTable1 = {
+	["A"] = false,
+	["S"] = false,
+	["D"] = false,
+	["W"] = false,
+	["V"] = false
+}
+
+game:GetService("ReplicatedStorage").Events.Shoot:FireServer(ohTable1)
+wait(6)
+end
+end)
+
+Section11:NewToggle("AutoGuard", "Guards so u can steal", function(state)
+    _G.active = state
+    while _G.active do
+        local ohBoolean1 = true
+        game:GetService("ReplicatedStorage").Events.Guard:FireServer(ohBoolean1)
+        wait(1)
+    end
+end)
+
+Section11:NewToggle("Autopass LanarSEED", "For lights alt", function(state)
+    _G.active = state
+    while _G.active do
+    local ohInstance1 = workspace.LanarSEED
+    game:GetService("ReplicatedStorage").Events.Pass:FireServer(ohInstance1)("Input", value)
+    wait()
+end
+end)
+
+local Tab = Window:NewTab("Settings")
+
+local Section = Tab:NewSection("All the settings")
+
+Section:NewKeybind("Close gui", "Pick key to close gui", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
